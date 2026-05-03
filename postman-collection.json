@@ -1,99 +1,74 @@
 {
-    "info": {
-        "name": "School Management API",
-        "description": "API collection for managing schools",
-        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  "info": {
+    "name": "School Management API",
+    "description": "APIs for adding and listing schools",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Check",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/"
+      }
     },
-    "item": [
+    {
+      "name": "Add School",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Innovation Public School\",\n  \"address\": \"Tech Park Road\",\n  \"latitude\": 40.7505,\n  \"longitude\": -73.9972\n}"
+        },
+        "url": "{{base_url}}/addSchool"
+      },
+      "response": [
         {
-            "name": "Check",
-            "request": {
-                "method": "GET",
-                "url": {
-                    "raw": "{{base_url}}/",
-                    "path": [
-                        ""
-                    ]
-                }
-            }
+          "name": "Success",
+          "status": "Created",
+          "code": 201,
+          "body": "{\n  \"success\": true,\n  \"message\": \"School added successfully\"\n}"
         },
         {
-            "name": "Add School",
-            "request": {
-                "method": "POST",
-                "header": [
-                    {
-                        "key": "Content-Type",
-                        "value": "application/json"
-                    }
-                ],
-                "body": {
-                    "mode": "raw",
-                    "raw": "{\n  \"name\": \"Innovation Public School\",\n  \"address\": \"100 Tech Park Road\",\n  \"latitude\": 40.7505,\n  \"longitude\": -73.9972\n}"
-                },
-                "url": {
-                    "raw": "{{base_url}}/addSchool",
-                    "path": [
-                        "addSchool"
-                    ]
-                }
-            },
-            "response": [
-                {
-                    "name": "Success",
-                    "status": "Created",
-                    "code": 201,
-                    "body": "{\n  \"success\": true,\n  \"message\": \"School added successfully\"\n}"
-                },
-                {
-                    "name": "Failure",
-                    "status": "Bad Request",
-                    "code": 400,
-                    "body": "{\n  \"success\": false,\n  \"message\": \"Invalid input data\"\n}"
-                }
-            ]
+          "name": "Failure",
+          "status": "Bad Request",
+          "code": 400,
+          "body": "{\n  \"success\": false,\n  \"message\": \"Invalid input\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "List Schools",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/listSchools?latitude=40.7128&longitude=-74.0060"
+      },
+      "response": [
+        {
+          "name": "Success",
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"success\": true,\n  \"schools\": []\n}"
         },
         {
-            "name": "List Schools",
-            "request": {
-                "method": "GET",
-                "url": {
-                    "raw": "{{base_url}}/listSchools?latitude=40.7128&longitude=-74.0060",
-                    "path": [
-                        "listSchools"
-                    ],
-                    "query": [
-                        {
-                            "key": "latitude",
-                            "value": "40.7128"
-                        },
-                        {
-                            "key": "longitude",
-                            "value": "-74.0060"
-                        }
-                    ]
-                }
-            },
-            "response": [
-                {
-                    "name": "Success",
-                    "status": "OK",
-                    "code": 200,
-                    "body": "{\n  \"success\": true,\n  \"schools\": []\n}"
-                },
-                {
-                    "name": "Failure",
-                    "status": "Bad Request",
-                    "code": 400,
-                    "body": "{\n  \"success\": false,\n  \"message\": \"Latitude and longitude required\"\n}"
-                }
-            ]
+          "name": "Failure",
+          "status": "Bad Request",
+          "code": 400,
+          "body": "{\n  \"success\": false,\n  \"message\": \"Latitude and longitude required\"\n}"
         }
-    ],
-    "variable": [
-        {
-            "key": "base_url",
-            "value": "https://school-management-api-9cey.onrender.com"
-        }
-    ]
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://school-management-api-9cey.onrender.com"
+    }
+  ]
 }
