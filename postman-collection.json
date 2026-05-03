@@ -11,7 +11,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://localhost:5000/",
+                    "raw": "https://school-management-api-9cey.onrender.com/",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -30,7 +30,7 @@
                         "method": "GET",
                         "header": [],
                         "url": {
-                            "raw": "http://localhost:5000/",
+                            "raw": "https://school-management-api-9cey.onrender.com/",
                             "protocol": "http",
                             "host": [
                                 "localhost"
@@ -68,7 +68,7 @@
                     "raw": "{\n  \"name\": \"Innovation Public School\",\n  \"address\": \"100 Tech Park Road, Innovation District\",\n  \"latitude\": 40.7505,\n  \"longitude\": -73.9972\n}"
                 },
                 "url": {
-                    "raw": "http://localhost:5000/addSchool",
+                    "raw": "https://school-management-api-9cey.onrender.com/addSchool",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -96,7 +96,7 @@
                             "raw": "{\n  \"name\": \"Innovation Public School\",\n  \"address\": \"100 Tech Park Road, Innovation District\",\n  \"latitude\": 40.7505,\n  \"longitude\": -73.9972\n}"
                         },
                         "url": {
-                            "raw": "http://localhost:5000/addSchool",
+                            "raw": "https://school-management-api-9cey.onrender.com/addSchool",
                             "protocol": "http",
                             "host": [
                                 "localhost"
@@ -132,7 +132,7 @@
                             "raw": "{\n  \"name\": \"School Name\"\n}"
                         },
                         "url": {
-                            "raw": "http://localhost:5000/addSchool",
+                            "raw": "https://school-management-api-9cey.onrender.com/addSchool",
                             "protocol": "http",
                             "host": [
                                 "localhost"
@@ -168,7 +168,7 @@
                             "raw": "{\n  \"name\": \"Test School\",\n  \"address\": \"123 Main St\",\n  \"latitude\": 95,\n  \"longitude\": -74\n}"
                         },
                         "url": {
-                            "raw": "http://localhost:5000/addSchool",
+                            "raw": "https://school-management-api-9cey.onrender.com/addSchool",
                             "protocol": "http",
                             "host": [
                                 "localhost"
@@ -197,7 +197,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://localhost:5000/listSchools?latitude=40.7128&longitude=-74.0060",
+                    "raw": "https://school-management-api-9cey.onrender.com/listSchools?latitude=40.7128&longitude=-74.0060",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -228,7 +228,7 @@
                         "method": "GET",
                         "header": [],
                         "url": {
-                            "raw": "http://localhost:5000/listSchools?latitude=40.7128&longitude=-74.0060",
+                            "raw": "https://school-management-api-9cey.onrender.com/listSchools?latitude=40.7128&longitude=-74.0060",
                             "protocol": "http",
                             "host": [
                                 "localhost"
@@ -265,7 +265,7 @@
                         "method": "GET",
                         "header": [],
                         "url": {
-                            "raw": "http://localhost:5000/listSchools",
+                            "raw": "https://school-management-api-9cey.onrender.com/listSchools",
                             "protocol": "http",
                             "host": [
                                 "localhost"
@@ -292,7 +292,7 @@
                         "method": "GET",
                         "header": [],
                         "url": {
-                            "raw": "http://localhost:5000/listSchools?latitude=40.7128&longitude=200",
+                            "raw": "https://school-management-api-9cey.onrender.com/listSchools?latitude=40.7128&longitude=200",
                             "protocol": "http",
                             "host": [
                                 "localhost"
@@ -331,7 +331,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://localhost:5000/listSchools?latitude=40.7505&longitude=-73.9972",
+                    "raw": "https://school-management-api-9cey.onrender.com/listSchools?latitude=40.7505&longitude=-73.9972",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -362,7 +362,7 @@
                         "method": "GET",
                         "header": [],
                         "url": {
-                            "raw": "http://localhost:5000/listSchools?latitude=40.7505&longitude=-73.9972",
+                            "raw": "https://school-management-api-9cey.onrender.com/listSchools?latitude=40.7505&longitude=-73.9972",
                             "protocol": "http",
                             "host": [
                                 "localhost"
@@ -399,7 +399,7 @@
     "variable": [
         {
             "key": "base_url",
-            "value": "http://localhost:5000",
+            "value": "https://school-management-api-9cey.onrender.com",
             "type": "string"
         }
     ]

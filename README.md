@@ -9,13 +9,13 @@ A Node.js REST API for managing schools with features to add schools and retriev
 - **Distance Calculation**: Uses Haversine formula for accurate geographical distance calculation
 - **Input Validation**: validation for all inputs using zod schema validation
 - **MySQL Database**: Persistent data storage
-- **Error Handling**: Robust error handling 
+- **Error Handling**: Robust error handling
 
 ## Tech Stack
 
 - **Node.js**: JavaScript runtime
 - **Express.js**: Web application framework
-- **MySQL2**: Database driver 
+- **MySQL2**: Database driver
 - **dotenv**: Environment variable management
 
 ## Prerequisites
@@ -78,7 +78,7 @@ npm run dev
 npm start
 ```
 
-The server will start on `http://localhost:5000`
+The server will start on `https://school-management-api-9cey.onrender.com`
 
 ## API Endpoints
 
@@ -183,7 +183,6 @@ The server will start on `http://localhost:5000`
 - Latitude and longitude query parameters are required
 - Both must be valid numbers within valid ranges
 
-
 ## Testing
 
 Use the provided Postman collection to test the APIs. See `postman-collection.json` for complete details.
@@ -193,7 +192,7 @@ Use the provided Postman collection to test the APIs. See `postman-collection.js
 **Add School**:
 
 ```bash
-curl -X POST http://localhost:5000/addSchool \
+curl -X POST https://school-management-api-9cey.onrender.com/addSchool \
   -H "Content-Type: application/json" \
   -d '{
     "name": "New School",
@@ -206,7 +205,7 @@ curl -X POST http://localhost:5000/addSchool \
 **List Schools**:
 
 ```bash
-curl -X GET "http://localhost:5000/listSchools?latitude=40.7128&longitude=-74.0060"
+curl -X GET "https://school-management-api-9cey.onrender.com/listSchools?latitude=40.7128&longitude=-74.0060"
 ```
 
 ## Database Schema
@@ -244,7 +243,6 @@ The API provides meaningful error responses for various scenarios:
 - **400 Bad Request**: Invalid input or missing required parameters
 - **404 Not Found**: Endpoint doesn't exist
 - **500 Internal Server Error**: Server-side errors with detailed messages in development
-
 
 ## License
 
