@@ -1,0 +1,406 @@
+{
+    "info": {
+        "name": "School Management API",
+        "description": "API collection for managing schools with add and list by proximity functionality",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": " Check",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:5000/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        ""
+                    ]
+                },
+                "description": "Check if the API is running"
+            },
+            "response": [
+                {
+                    "name": "Success",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5000/",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                ""
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": "{\n  \"message\": \"API is running\"\n}"
+                }
+            ]
+        },
+        {
+            "name": "Add School",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"name\": \"Innovation Public School\",\n  \"address\": \"100 Tech Park Road, Innovation District\",\n  \"latitude\": 40.7505,\n  \"longitude\": -73.9972\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/addSchool",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "addSchool"
+                    ]
+                },
+                "description": "Add a new school to the database"
+            },
+            "response": [
+                {
+                    "name": "Success - School Added",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Innovation Public School\",\n  \"address\": \"100 Tech Park Road, Innovation District\",\n  \"latitude\": 40.7505,\n  \"longitude\": -73.9972\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/addSchool",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "addSchool"
+                            ]
+                        }
+                    },
+                    "status": "Created",
+                    "code": 201,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": "{\n  \"success\": true,\n  \"message\": \"School added successfully\",\n  \"schoolId\": 6\n}"
+                },
+                {
+                    "name": "Error - Missing Fields",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"School Name\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/addSchool",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "addSchool"
+                            ]
+                        }
+                    },
+                    "status": "Bad Request",
+                    "code": 400,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": "{\n  \"success\": false,\n  \"message\": \"All fields (name, address, latitude, longitude) are required\"\n}"
+                },
+                {
+                    "name": "Error - Invalid Latitude",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Test School\",\n  \"address\": \"123 Main St\",\n  \"latitude\": 95,\n  \"longitude\": -74\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/addSchool",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "addSchool"
+                            ]
+                        }
+                    },
+                    "status": "Bad Request",
+                    "code": 400,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": "{\n  \"success\": false,\n  \"message\": \"Latitude must be between -90 and 90\"\n}"
+                }
+            ]
+        },
+        {
+            "name": "List Schools by Proximity",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:5000/listSchools?latitude=40.7128&longitude=-74.0060",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "listSchools"
+                    ],
+                    "query": [
+                        {
+                            "key": "latitude",
+                            "value": "40.7128",
+                            "description": "User's latitude coordinate"
+                        },
+                        {
+                            "key": "longitude",
+                            "value": "-74.0060",
+                            "description": "User's longitude coordinate"
+                        }
+                    ]
+                },
+                "description": "Retrieve all schools sorted by distance from user's location"
+            },
+            "response": [
+                {
+                    "name": "Success - Schools Listed",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5000/listSchools?latitude=40.7128&longitude=-74.0060",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "listSchools"
+                            ],
+                            "query": [
+                                {
+                                    "key": "latitude",
+                                    "value": "40.7128"
+                                },
+                                {
+                                    "key": "longitude",
+                                    "value": "-74.0060"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": "{\n  \"success\": true,\n  \"message\": \"Schools retrieved and sorted by proximity\",\n  \"userLocation\": {\n    \"latitude\": 40.7128,\n    \"longitude\": -74.0060\n  },\n  \"schools\": [\n    {\n      \"id\": 1,\n      \"name\": \"Green Valley School\",\n      \"address\": \"123 Main Street, Downtown\",\n      \"latitude\": 40.7128,\n      \"longitude\": -74.0060,\n      \"distance\": 0.0\n    },\n    {\n      \"id\": 4,\n      \"name\": \"Lakeside Public School\",\n      \"address\": \"321 Lake Avenue, South Side\",\n      \"latitude\": 40.7061,\n      \"longitude\": -74.0088,\n      \"distance\": 0.94\n    },\n    {\n      \"id\": 2,\n      \"name\": \"Riverside Academy\",\n      \"address\": \"456 River Road, North Side\",\n      \"latitude\": 40.7282,\n      \"longitude\": -73.9942,\n      \"distance\": 2.15\n    },\n    {\n      \"id\": 5,\n      \"name\": \"Central School District\",\n      \"address\": \"654 Central Boulevard, City Center\",\n      \"latitude\": 40.7306,\n      \"longitude\": -73.9979,\n      \"distance\": 2.48\n    },\n    {\n      \"id\": 3,\n      \"name\": \"Mountain View High School\",\n      \"address\": \"789 Mountain Path, West Side\",\n      \"latitude\": 40.7489,\n      \"longitude\": -73.9680,\n      \"distance\": 4.83\n    }\n  ]\n}"
+                },
+                {
+                    "name": "Error - Missing Parameters",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5000/listSchools",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "listSchools"
+                            ]
+                        }
+                    },
+                    "status": "Bad Request",
+                    "code": 400,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": "{\n  \"success\": false,\n  \"message\": \"User latitude and longitude parameters are required\"\n}"
+                },
+                {
+                    "name": "Error - Invalid Longitude",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5000/listSchools?latitude=40.7128&longitude=200",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "listSchools"
+                            ],
+                            "query": [
+                                {
+                                    "key": "latitude",
+                                    "value": "40.7128"
+                                },
+                                {
+                                    "key": "longitude",
+                                    "value": "200"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Bad Request",
+                    "code": 400,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": "{\n  \"success\": false,\n  \"message\": \"Longitude must be between -180 and 180\"\n}"
+                }
+            ]
+        },
+        {
+            "name": "List Schools - Alternate Location",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:5000/listSchools?latitude=40.7505&longitude=-73.9972",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "listSchools"
+                    ],
+                    "query": [
+                        {
+                            "key": "latitude",
+                            "value": "40.7505",
+                            "description": "Test from different location"
+                        },
+                        {
+                            "key": "longitude",
+                            "value": "-73.9972",
+                            "description": "Test from different location"
+                        }
+                    ]
+                },
+                "description": "Retrieve schools from a different user location to test proximity sorting"
+            },
+            "response": [
+                {
+                    "name": "Success",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5000/listSchools?latitude=40.7505&longitude=-73.9972",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "listSchools"
+                            ],
+                            "query": [
+                                {
+                                    "key": "latitude",
+                                    "value": "40.7505"
+                                },
+                                {
+                                    "key": "longitude",
+                                    "value": "-73.9972"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": "{\n  \"success\": true,\n  \"message\": \"Schools retrieved and sorted by proximity\",\n  \"userLocation\": {\n    \"latitude\": 40.7505,\n    \"longitude\": -73.9972\n  },\n  \"schools\": [\n    {\n      \"id\": 3,\n      \"name\": \"Mountain View High School\",\n      \"address\": \"789 Mountain Path, West Side\",\n      \"latitude\": 40.7489,\n      \"longitude\": -73.9680,\n      \"distance\": 2.92\n    },\n    {\n      \"id\": 5,\n      \"name\": \"Central School District\",\n      \"address\": \"654 Central Boulevard, City Center\",\n      \"latitude\": 40.7306,\n      \"longitude\": -73.9979,\n      \"distance\": 2.2\n    },\n    {\n      \"id\": 2,\n      \"name\": \"Riverside Academy\",\n      \"address\": \"456 River Road, North Side\",\n      \"latitude\": 40.7282,\n      \"longitude\": -73.9942,\n      \"distance\": 2.46\n    },\n    {\n      \"id\": 1,\n      \"name\": \"Green Valley School\",\n      \"address\": \"123 Main Street, Downtown\",\n      \"latitude\": 40.7128,\n      \"longitude\": -74.0060,\n      \"distance\": 4.1\n    },\n    {\n      \"id\": 4,\n      \"name\": \"Lakeside Public School\",\n      \"address\": \"321 Lake Avenue, South Side\",\n      \"latitude\": 40.7061,\n      \"longitude\": -74.0088,\n      \"distance\": 4.86\n    }\n  ]\n}"
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:5000",
+            "type": "string"
+        }
+    ]
+}
