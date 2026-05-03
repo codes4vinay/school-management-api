@@ -9,7 +9,7 @@
       "name": "Check",
       "request": {
         "method": "GET",
-        "url": "{{base_url}}/"
+        "url": "https://school-management-api-9cey.onrender.com/"
       }
     },
     {
@@ -26,7 +26,7 @@
           "mode": "raw",
           "raw": "{\n  \"name\": \"Innovation Public School\",\n  \"address\": \"Tech Park Road\",\n  \"latitude\": 40.7505,\n  \"longitude\": -73.9972\n}"
         },
-        "url": "{{base_url}}/addSchool"
+        "url": "https://school-management-api-9cey.onrender.com/addSchool"
       },
       "response": [
         {
@@ -47,7 +47,7 @@
       "name": "List Schools",
       "request": {
         "method": "GET",
-        "url": "{{base_url}}/listSchools?latitude=40.7128&longitude=-74.0060"
+        "url": "https://school-management-api-9cey.onrender.com/listSchools?latitude=40.7128&longitude=-74.0060"
       },
       "response": [
         {
@@ -63,12 +63,6 @@
           "body": "{\n  \"success\": false,\n  \"message\": \"Latitude and longitude required\"\n}"
         }
       ]
-    }
-  ],
-  "variable": [
-    {
-      "key": "base_url",
-      "value": "https://school-management-api-9cey.onrender.com"
     }
   ]
 }
